@@ -1,0 +1,33 @@
+version: "3"
+services:
+  api:
+    build: .
+    container_name: cloudtools-api
+    ports:
+      - "5200:5200"
+    environment:
+      - ENVIRONMENT=local
+      - ESCLIENT=http://localhost:9201
+      - MONGO=http://localhost:27017
+    volumes:
+      - ./:/app
+    depends_on:
+      - mongo
+    networks:
+      - app-net
+
+  mongo:
+    image: mongo:latest
+    container_name: cloudtools-database
+    ports:
+      - "27017:27017"
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    external: false
+
+volumes:
+  data:
+    driver: local
