@@ -8,9 +8,17 @@ class SendImageDto(BaseModel):
 
 
 class ResizeImageDto(BaseModel):
+    template: Optional[str]
     images: List[str]
     dimensions: List[int]
 
+
+class TrademarkImageDto(BaseModel):
+    x_offset: int
+    y_offset: int
+    dimensions: List[int]
+    trademark: str
+    images: List[str]
 
 class CompressImageDto(BaseModel):
     images: List[str]
