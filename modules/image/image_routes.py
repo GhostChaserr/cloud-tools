@@ -3,10 +3,13 @@ from fastapi import Request
 from functools import wraps
 from fastapi import Depends
 
+from modules.shared.shared_decorators import activity
+
 from helpers.global_helpers import global_helpers
 from .image_decorators import extract_images
 from .image_dto import SendImageDto, ResizeImageDto, CompressImageDto, TrademarkImageDto
 from .image_service import image_service
+
 
 
 @app.get('/api/image')
@@ -14,6 +17,7 @@ async def handle_request(request: Request):
     return {"Hello": "IMG SERVICE"}
 
 @app.post('/api/image/convert-blackwhite', tags=["images"])
+@activity("")
 @extract_images
 async def handle_request(request: Request, sendImageDto: SendImageDto):
   response = { "images": [] }

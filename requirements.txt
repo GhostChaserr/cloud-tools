@@ -8,6 +8,7 @@ motor==1.2.1
 motorengine==1.0.0
 numpy==1.19.5
 opencv-python==4.5.1.48
+peewee==3.14.0
 Pillow==8.1.0
 pycodestyle==2.6.0
 pydantic==1.7.3
