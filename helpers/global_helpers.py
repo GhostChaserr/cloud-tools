@@ -38,7 +38,7 @@ class GlobalHelpers:
       raise Exception('Base 64 image is missing!')
 
     nparr = np.fromstring(base64.b64decode(encoded_base64), np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_UNCHANGED)
+    img = cv2.imdecode(nparr,  cv2.IMREAD_COLOR)
 
     return img
 

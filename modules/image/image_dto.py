@@ -1,10 +1,12 @@
 from typing import Optional, List
 from pydantic import BaseModel
 
+
 class SendImageDto(BaseModel):
     images: List[str]
     tresh_intensity: Optional[List[int]]
     cordinates: Optional[List[int]]
+    scale_percentage: Optional[float]
 
 
 class ResizeImageDto(BaseModel):
@@ -20,6 +22,12 @@ class TrademarkImageDto(BaseModel):
     trademark: str
     images: List[str]
 
+
 class CompressImageDto(BaseModel):
     images: List[str]
     quality: int
+
+
+class ScaleImageDto(BaseModel):
+    images: List[str]
+    scale_percentage: int
